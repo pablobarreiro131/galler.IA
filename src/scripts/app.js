@@ -48,11 +48,23 @@ document.addEventListener('DOMContentLoaded', () => {                           
         mostrarGaleria(numeroImagenActual);                                         // Se llama a la función mostrarGaleria para actualizar la imagen.
     });
 
-    document.getElementById('siguiente').addEventListener('click', () => {          // Al texto con id next se le añade un evento de click, que al pulsarlo ejecuta la función que se le pasa como parámetro.
+    document.getElementById('siguiente').addEventListener('click', () => {               // Al texto con id next se le añade un evento de click, que al pulsarlo ejecuta la función que se le pasa como parámetro.
         if (arte.length === 0) return;
         numeroImagenActual = (numeroImagenActual + 1) % arte.length;                // Esta función calcula si hay una imagen siguiente a la actual. Si no la hay, vuelve a la primera imagen.
         mostrarGaleria(numeroImagenActual);                                         // Se llama a la función mostrarGaleria para actualizar la imagen.   
     });
+});
+
+document.addEventListener('keydown', function(event) {
+    if (arte.length === 0) return;
+    if (event.key === "ArrowLeft") {
+        numeroImagenActual = (numeroImagenActual - 1 + arte.length) % arte.length;
+        mostrarGaleria(numeroImagenActual);
+    }
+    if (event.key === "ArrowRight") {
+        numeroImagenActual = (numeroImagenActual + 1) % arte.length;
+        mostrarGaleria(numeroImagenActual);
+    }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -85,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 
 // Efecto de píxeles estilo 8-bits.

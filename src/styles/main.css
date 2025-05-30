@@ -334,7 +334,7 @@ img {
 #contact form button[type="submit"]:hover {
     background: #000000;
     color: #ffffff;
-    transition: background 0.15s, color 0.15s;
+    transition: background 0.15s, color 0.2s;
 }
 
 #contact form input,
